@@ -1,0 +1,110 @@
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  background: radial-gradient(circle at center, #1a0000 0%, #000 70%);
+  font-family: "Impact", "Courier New", monospace;
+  overflow: hidden;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.cyber-container {
+  text-align: center;
+  padding: 60px 80px;
+  background: #000;
+  border: 2px solid #ff0000;
+  box-shadow:
+    0 0 30px rgba(255, 0, 0, 0.4),
+    inset 0 0 20px rgba(255, 0, 0, 0.1);
+  clip-path: polygon(
+    0 20px,
+    20px 0,
+    100% 0,
+    100% calc(100% - 20px),
+    calc(100% - 20px) 100%,
+    0 100%
+  );
+}
+
+.cyber-title {
+  color: #ff0000;
+  font-size: 3.5rem;
+  letter-spacing: 6px;
+  text-transform: uppercase;
+  text-shadow: 0 0 6px rgba(255, 0, 0, 0.6);
+  margin-bottom: 40px;
+}
+
+.cyber-status {
+  font-size: 1.4rem;
+  padding: 20px 50px;
+  border: 1px solid #ff0000;
+  background: rgba(255, 0, 0, 0.05);
+  box-shadow: 0 0 15px rgba(255, 0, 0, 0.3);
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+.cyber-status.healthy {
+  color: #ffffff;
+  text-shadow: none;
+}
+
+.cyber-status.danger {
+  color: #ff4444;
+  text-shadow: 0 0 8px rgba(255, 0, 0, 0.6);
+}
+
+/* gear wrapper — needed so absolute children have a positioned parent */
+.gear-wrapper {
+  position: relative;
+  width: 220px;
+  height: 140px;
+  margin: 40px auto 0;
+}
+
+/* gears — exactly as provided */
+#gear1, #gear2, #gear3 {
+    color: #888;
+    display: block;
+    float: left;
+    position: absolute;
+}
+            
+#gear1 {
+    top: 45px;
+}
+            
+#gear2 {
+    left: 60px;
+}
+
+#gear3 {
+    top: 45px;
+    left: 110px;
+}
+
+.spin {
+    -webkit-animation:spin 4s linear infinite;
+    -moz-animation:spin 4s linear infinite;
+    animation:spin 4s linear infinite;
+}
+
+.spin-back {
+    -webkit-animation:spin-back 4s linear infinite;
+    -moz-animation:spin-back 4s linear infinite;
+    animation:spin-back 4s linear infinite;
+}
+
+@-moz-keyframes spin { 100% { -moz-transform: rotate(360deg); } }
+@-webkit-keyframes spin { 100% { -webkit-transform: rotate(360deg); } }
+@keyframes spin { 100% { -webkit-transform: rotate(360deg); transform:rotate(360deg); } }
+
+@-moz-keyframes spin-back { 100% { -moz-transform: rotate(-360deg); } }
+@-webkit-keyframes spin-back { 100% { -webkit-transform: rotate(-360deg); } }
+@keyframes spin-back { 100% { -webkit-transform: rotate(-360deg); transform:rotate(-360deg); } }
