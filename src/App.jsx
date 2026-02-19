@@ -5,11 +5,17 @@ function App() {
   const [status, setStatus] = useState("Loading...");
 
   useEffect(() => {
-    fetch(`${import.meta.env.VITE_API_URL}/health`)
-      .then(res => res.json())
-      .then(data => setStatus(data.message))
-      .catch(() => setStatus("Service unavailable"));
-  }, []);
+  fetch(`${import.meta.env.VITE_API_URL}/health`)
+    .then(res => {
+      if (!res.ok) {
+        throw new Error("Service unavailable");
+      }
+      return res.json();
+    })
+    .then(data => setStatus(data.message))
+    .catch(() => setStatus("Service unavailable"));
+}, []);
+
 
   const isDown = status.toLowerCase().includes("unavailable");
 
